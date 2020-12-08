@@ -10,13 +10,16 @@ import re
 from tabulate import tabulate
 from os import environ
 from dotenv import load_dotenv
+from flask import Flask, request
 
 #load .env
 load_dotenv()
 TOKEN = environ.get('TOKEN')
+PORT = int(environ.get('PORT', 5000))  # second value by default if first value not found
 
 # create bot
 bot = telebot.TeleBot(token=TOKEN)
+server = Flask(__name__)
 
 pict = [
     'https://besthqwallpapers.com/Uploads/13-11-2020/144318/thumb-chemistry-periodic-table-chemical-elements-chemistry-background-chemistry-concepts.jpg',
@@ -213,5 +216,22 @@ def enter_features_list(message):
                          "Here they are:" + ", ".join(errors) + "\n"
                          "To get lists of available features use /listfeatures")
 
+@server.route('/' + TOKEN, methods=['POST'])
+def getMessage():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "!", 200
+
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://check-element-bot.herokuapp.com/' + TOKEN)
+    return "!", 200
+
+# main function with Web Hook
+# our bot is waiting a message from Telegram
+def main():
+    server.run(host="0.0.0.0", port=PORT)
+        
 if __name__ == '__main__':
     bot.infinity_polling()
