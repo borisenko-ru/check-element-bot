@@ -1,8 +1,8 @@
-# osm_how_to_map_bot
-бот для ответа на вопросы, как обозначить объекты в OSM
+# CheckElementBot
+chemical elements basic data search bot
 
-работает по адресу [@osm_howtomap_bot](https://t.me/osm_howtomap_bot)
+working address [@CheckElementBot](https://t.me/CheckElementBot)
 
-запущен на https://www.heroku.com/
+run on https://www.heroku.com/
 
-для локального запуска необходимо завести токен и сформировать config_my.py файл.
+for local machine run a TOKEN and config.py file are needed
