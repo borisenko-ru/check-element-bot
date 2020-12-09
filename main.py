@@ -224,6 +224,8 @@ def webhook():
     bot.set_webhook(url='https://check-element-bot.herokuapp.com/' + TOKEN)
     return "!", 200
 
-if __name__ == '__main__':
+def main():
     server.run(host="0.0.0.0", port=PORT)
+
+if __name__ == '__main__':
     main()
