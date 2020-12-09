@@ -224,11 +224,6 @@ def webhook():
     bot.set_webhook(url='https://check-element-bot.herokuapp.com/' + TOKEN)
     return "!", 200
 
-# main function with Web Hook
-# our bot is waiting a message from Telegram
-def main():
-    server.run(host="0.0.0.0", port=PORT)
-
-
 if __name__ == '__main__':
+    server.run(host="0.0.0.0", port=PORT)
     main()
