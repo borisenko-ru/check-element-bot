@@ -1,3 +1,4 @@
+from config import TOKEN, PORT
 import config
 import pandas as pd
 import numpy as np
@@ -11,11 +12,6 @@ from tabulate import tabulate
 from os import environ
 from dotenv import load_dotenv
 from flask import Flask, request
-
-#load .env
-load_dotenv()
-TOKEN = environ.get('TOKEN')
-PORT = int(environ.get('PORT', 5000))  # second value by default if first value not found
 
 # create bot
 bot = telebot.TeleBot(token=TOKEN)
