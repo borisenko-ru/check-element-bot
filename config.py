@@ -1,8 +1,12 @@
 from enum import Enum
+from os import environ
+from dotenv import load_dotenv
 
-token = '1441927561:AAHMO0-tMDIaAht_7tWVUk5k6KfP_mGLF24'
-db_file = 'database.vdb'
+#load .env
+load_dotenv()
 
+TOKEN = environ.get('TOKEN')
+PORT = int(environ.get('PORT', 5000))
 
 class States(Enum):
     S_START = "1"
