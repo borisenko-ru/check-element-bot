@@ -127,14 +127,14 @@ def cmd_reset(message):
                                       "Type /listelements to get the list of all 118 currently discovered elements.\n"
                                       "Use /info or /commands to rewind what I am and what can I do.")
     bot.send_photo(message.chat.id, pict[randint(0, 5)])
-    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
+    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT_SYMBOL.value)
     #TODO:
     # Удалить состояние пользователя
 
 @bot.message_handler(commands=["start"])
 def cmd_start(message):
-    # dbworker.set_state(message.chat.id, config.States.S_START.value)
-    # state = dbworker.get_current_state(message.chat.id)
+    dbworker.set_state(message.chat.id, config.States.S_START.value)
+    state = dbworker.get_current_state(message.chat.id)
     # Под "остальным" понимаем состояние "0" - начало диалога
     bot.send_message(message.chat.id, "Greetings again! I'm CheckElementBot :) \n"
                                       "You gotta specify which element`s information You want to get.\n"
