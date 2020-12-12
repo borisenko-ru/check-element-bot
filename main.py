@@ -127,7 +127,7 @@ def cmd_reset(message):
                                       "Type /listelements to get the list of all 118 currently discovered elements.\n"
                                       "Use /info or /commands to rewind what I am and what can I do.")
     bot.send_photo(message.chat.id, pict[randint(0, 5)])
-    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT_SYMBOL.value)
+    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
     #TODO:
     # Удалить состояние пользователя
 
@@ -151,8 +151,8 @@ def cmd_start(message):
                                                               '/listelements', '/listfeatures'))
 def enter_element(message):
     # global elements, element
-    # dbworker.del_state(str(message.chat.id) + 'elements')  # Если в базе когда-то был выбор списка элементов, удалим (мы же новый пишем)
-    # elements = [x.strip() for x in re.split(',', message.text)]
+    dbworker.del_state(str(message.chat.id) + 'elements')  # Если в базе когда-то был выбор списка элементов, удалим (мы же новый пишем)
+    elements = [x.strip() for x in re.split(',', message.text)]
     element = dbworker.get_current_state(str(message.chat.id)+'element')
 
     bot.send_message(message.chat.id, 'Thank you, I\'m checkin\' your info.')
