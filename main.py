@@ -127,7 +127,7 @@ def cmd_reset(message):
                                       "Type /listelements to get the list of all 118 currently discovered elements.\n"
                                       "Use /info or /commands to rewind what I am and what can I do.")
     bot.send_photo(message.chat.id, pict[randint(0, 5)])
-    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
+    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT_SYMBOL.value)
     #TODO:
     # Удалить состояние пользователя
 
