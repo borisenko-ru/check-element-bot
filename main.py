@@ -153,7 +153,7 @@ def enter_element(message):
     # global elements, element
     dbworker.del_state(str(message.chat.id) + 'elements')  # Если в базе когда-то был выбор списка элементов, удалим (мы же новый пишем)
     elements = [x.strip() for x in re.split(',', message.text)]
-    element = dbworker.get_current_state(str(message.chat.id)+'element')
+    #element = dbworker.get_current_state(str(message.chat.id)+'element')
 
     bot.send_message(message.chat.id, 'Thank you, I\'m checkin\' your info.')
     x = elements_data()['Symbol']
