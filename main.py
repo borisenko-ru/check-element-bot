@@ -143,8 +143,8 @@ def cmd_start(message):
                                       "Type /info to know what I am and what I can do for you.\n"
                                       "Tye /commands to list the available commands.\n"
                                       "Type /reset to discard previous selections and start anew.")
-    #bot.send_photo(message.chat.id, pict[randint(0, 5)])
-    #dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
+    bot.send_photo(message.chat.id, pict[randint(0, 5)])
+    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
 
 @bot.message_handler(func=lambda message: dbworker.get_current_state(message.chat.id) == config.States.S_ENTER_ELEMENT.value
                      and message.text.strip().lower() not in ('/reset', '/info', '/start', '/commands',
