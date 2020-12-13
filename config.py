@@ -2,6 +2,7 @@ from enum import Enum
 from os import environ
 from dotenv import load_dotenv
 
+db_file = 'database.vdb'
 #load .env
 load_dotenv()
 
