@@ -119,8 +119,8 @@ def cmd_listfields(message):
 
 @bot.message_handler(commands=["start"])
 def cmd_start(message):
-    dbworker.set_state(message.chat.id, config.States.S_START.value)
-    state = dbworker.get_current_state(message.chat.id)
+    #dbworker.set_state(message.chat.id, config.States.S_START.value)
+    #dbworker.get_current_state(message.chat.id)
     # Под "остальным" понимаем состояние "0" - начало диалога
     bot.send_message(message.chat.id, "Greetings again! I'm CheckElementBot :) \n"
                                       "You gotta specify which element`s information You want to get.\n"
@@ -131,7 +131,7 @@ def cmd_start(message):
                                       "Type /reset to discard previous selections and start anew.")
     bot.send_photo(message.chat.id, pict[randint(0, 5)])
     dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
-    
+
 # По команде /reset будем сбрасывать состояния, возвращаясь к началу диалога
 @bot.message_handler(commands=["reset"])
 def cmd_reset(message):
