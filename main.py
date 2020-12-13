@@ -117,20 +117,6 @@ def cmd_listfields(message):
          'MeltingPoint', 'BoilingPoint', 'Density']
     bot.send_message(message.chat.id, ", ".join(x))
 
-# По команде /reset будем сбрасывать состояния, возвращаясь к началу диалога
-@bot.message_handler(commands=["reset"])
-def cmd_reset(message):
-    bot.send_message(message.chat.id, "Let's start anew.\n"
-                                      "Which element`s information You want to get:\n"
-                                      "Enter a symbol of an element:\n"
-                                      "just type - Fe, Ca or any other.\n"
-                                      "Type /listelements to get the list of all 118 currently discovered elements.\n"
-                                      "Use /info or /commands to rewind what I am and what can I do.")
-    bot.send_photo(message.chat.id, pict[randint(0, 5)])
-    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
-    #TODO:
-    # Удалить состояние пользователя
-
 @bot.message_handler(commands=["start"])
 def cmd_start(message):
     dbworker.set_state(message.chat.id, config.States.S_START.value)
@@ -145,6 +131,20 @@ def cmd_start(message):
                                       "Type /reset to discard previous selections and start anew.")
     bot.send_photo(message.chat.id, pict[randint(0, 5)])
     dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
+    
+# По команде /reset будем сбрасывать состояния, возвращаясь к началу диалога
+@bot.message_handler(commands=["reset"])
+def cmd_reset(message):
+    bot.send_message(message.chat.id, "Let's start anew.\n"
+                                      "Which element`s information You want to get:\n"
+                                      "Enter a symbol of an element:\n"
+                                      "just type - Fe, Ca or any other.\n"
+                                      "Type /listelements to get the list of all 118 currently discovered elements.\n"
+                                      "Use /info or /commands to rewind what I am and what can I do.")
+    bot.send_photo(message.chat.id, pict[randint(0, 5)])
+    dbworker.set_state(message.chat.id, config.States.S_ENTER_ELEMENT.value)
+    #TODO:
+    # Удалить состояние пользователя
 
 @bot.message_handler(func=lambda message: dbworker.get_current_state(message.chat.id) == config.States.S_ENTER_ELEMENT.value
                      and message.text.strip().lower() not in ('/reset', '/info', '/start', '/commands',
