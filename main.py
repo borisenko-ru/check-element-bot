@@ -119,7 +119,7 @@ def cmd_listfields(message):
 
 @bot.message_handler(commands=["start"])
 def cmd_start(message):
-    #dbworker.set_state(message.chat.id, config.States.S_START.value)
+    dbworker.set_state(message.chat.id, config.States.S_START.value)
     #dbworker.get_current_state(message.chat.id)
     # Под "остальным" понимаем состояние "0" - начало диалога
     bot.send_message(message.chat.id, "Greetings again! I'm CheckElementBot :) \n"
