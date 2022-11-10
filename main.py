@@ -9,8 +9,8 @@ import dbworker
 from random import randint
 import re
 from tabulate import tabulate
-from os import environ
-from dotenv import load_dotenv
+# from os import environ
+# from dotenv import load_dotenv
 from flask import Flask, request
 
 # create bot
