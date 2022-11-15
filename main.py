@@ -117,9 +117,6 @@ def cmd_listfields(message):
          'MeltingPoint', 'BoilingPoint', 'Density']
     bot.send_message(message.chat.id, ", ".join(x))
 
-@bot.message_handler(commands=["start1"])
-def cmd_start1(message):
-    bot.send_message(message.chat.id, "Greetings")
 
 @bot.message_handler(commands=["start"])
 def cmd_start(message):
@@ -222,7 +219,6 @@ def getMessage():
     return "!", 200
 
 
-@server.route("/")
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(url='https://check-element-bot.onrender.com/' + TOKEN)
