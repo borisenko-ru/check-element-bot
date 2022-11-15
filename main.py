@@ -224,6 +224,7 @@ def webhook():
     bot.set_webhook(url='https://check-element-bot.onrender.com' + TOKEN)
     return "!", 200
 
+@server.route("/")
 def main():
     server.run(host="0.0.0.0", port=PORT)
 
