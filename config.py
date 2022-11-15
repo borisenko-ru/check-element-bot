@@ -8,7 +8,8 @@ load_dotenv()
 
 # TOKEN = environ.get('TOKEN')
 TOKEN = '1441927561:AAHMO0-tMDIaAht_7tWVUk5k6KfP_mGLF24'
-PORT = int(environ.get('PORT', 5000))
+# PORT = int(environ.get('PORT', 5000))
+PORT = 5000
 
 class States(Enum):
     S_START = "1"
