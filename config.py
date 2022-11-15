@@ -6,7 +6,8 @@ db_file = 'database.vdb'
 #load .env
 load_dotenv()
 
-TOKEN = environ.get('TOKEN')
+TKN = 'TOKEN'
+TOKEN = environ.get(TKN)
 PORT = int(environ.get('PORT', 5000))
 
 class States(Enum):
