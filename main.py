@@ -14,7 +14,7 @@ from tabulate import tabulate
 from flask import Flask, request
 
 # create bot
-bot = telebot.TeleBot(token=TOKEN)
+bot = telebot.TeleBot(token=str(TOKEN))
 server = Flask(__name__)
 
 pict = [
@@ -212,7 +212,7 @@ def enter_features_list(message):
                          "Here they are:" + ", ".join(errors) + "\n"
                          "To get lists of available features use /listfeatures")
 
-@server.route('/' + TOKEN, methods=['POST'])
+@server.route('/' + str(TOKEN), methods=['POST'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
@@ -221,7 +221,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://check-element-bot.onrender.com/' + TOKEN)
+    bot.set_webhook(url='https://check-element-bot.onrender.com/' + str(TOKEN))
     return "!", 200
 
 
