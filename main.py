@@ -225,8 +225,8 @@ def webhook():
     return "!", 200
 
 
-#def main():
-#    server.run(host="0.0.0.0", port=PORT)
+def main():
+    server.run(host="0.0.0.0", port=PORT)
 
 if __name__ == '__main__':
     main()
