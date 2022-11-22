@@ -221,7 +221,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://api.render.com/deploy/srv-cdptvv1a6gdl61gie34g?key=sRNWxByqH8M')
+    bot.set_webhook(url='https://check-element-bot.herokuapp.com/' + TOKEN)
     return "!", 200
 
 def main():
