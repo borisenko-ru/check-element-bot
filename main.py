@@ -221,7 +221,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://check-element-bot.onrender.com/' + str(TOKEN))
+    bot.set_webhook(url='https://check-element-bot.onrender.com' + str(TOKEN))
     return "!", 200
 
 
