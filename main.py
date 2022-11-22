@@ -212,7 +212,7 @@ def enter_features_list(message):
                          "Here they are:" + ", ".join(errors) + "\n"
                          "To get lists of available features use /listfeatures")
 
-@server.route('/', methods=['POST'])
+@server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
