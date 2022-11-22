@@ -117,10 +117,6 @@ def cmd_listfields(message):
          'MeltingPoint', 'BoilingPoint', 'Density']
     bot.send_message(message.chat.id, ", ".join(x))
 
-@bot.message_handler(commands=["start1"])
-def cmd_start1(message):
-    bot.send_message(message.chat.id, "Greetings")
-
 @bot.message_handler(commands=["start"])
 def cmd_start(message):
     dbworker.set_state(message.chat.id, config.States.S_START.value)
